@@ -1194,7 +1194,7 @@ import asyncio
 
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
-from app.agent import root_agent
+from myagent.agent import root_agent
 from google.genai import types as genai_types
 
 
@@ -1421,7 +1421,7 @@ For stateful agents, the starter pack supports persistent sessions.
 
 ### Monitoring & Observability
 *   **Technology:** Uses OpenTelemetry to emit events to Google Cloud Trace and Logging.
-*   **Custom Tracer:** A custom tracer in `app/utils/tracing.py` handles large payloads by linking to GCS, overcoming default service limits.
+*   **Custom Tracer:** A custom tracer in `myagent/utils/tracing.py` handles large payloads by linking to GCS, overcoming default service limits.
 *   **Infrastructure:** A Log Router to sink data to BigQuery is provisioned by Terraform.
 
 ---
