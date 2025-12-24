@@ -29,10 +29,10 @@ from opentelemetry.sdk.trace import TracerProvider, export
 from vertexai import agent_engines
 from vertexai.preview.reasoning_engines import AdkApp
 
-from app.agent import root_agent
-from app.utils.gcs import create_bucket_if_not_exists
-from app.utils.tracing import CloudTraceLoggingSpanExporter
-from app.utils.typing import Feedback
+from myagent.agent import root_agent
+from myagent.utils.gcs import create_bucket_if_not_exists
+from myagent.utils.tracing import CloudTraceLoggingSpanExporter
+from myagent.utils.typing import Feedback
 
 
 class AgentEngineApp(AdkApp):
@@ -84,7 +84,7 @@ def deploy_agent_engine_app(
     location: str,
     agent_name: str | None = None,
     requirements_file: str = ".requirements.txt",
-    extra_packages: list[str] = ["./app"],
+    extra_packages: list[str] = ["./myagent"],
     env_vars: dict[str, str] = {},
 ) -> agent_engines.AgentEngine:
     """Deploy the agent engine app to Vertex AI."""
@@ -177,7 +177,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--extra-packages",
         nargs="+",
-        default=["./app"],
+        default=["./myagent"],
         help="Additional packages to include",
     )
     parser.add_argument(

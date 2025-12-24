@@ -52,7 +52,7 @@ select = [
 ignore = ["E501", "C901"] # ignore line too long, too complex
 
 [tool.ruff.lint.isort]
-known-first-party = ["app", "frontend"]
+known-first-party = ["myagent", "frontend"]
 
 [tool.mypy]
 disallow_untyped_calls = true
@@ -87,4 +87,4 @@ pythonpath = "."
 asyncio_default_fixture_loop_scope = "function"
 
 [tool.hatch.build.targets.wheel]
-packages = ["app","frontend"]
+packages = ["myagent", "frontend"]
